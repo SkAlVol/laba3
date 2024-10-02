@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота: Float і Flexbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    /* Стилі для float */
+    .float-layout .img-top,
+    .float-layout .text-left,
+    .float-layout .img-middle,
+    .float-layout .text-bottom {
+      float: left;
+    }
+
+    .float-layout .img-top {
+      width: 100%;
+      background-color: lightgreen;
+      height: 100px;
+    }
+
+    .float-layout .text-left {
+      width: 25%;
+      background-color: lightblue;
+      height: 300px;
+    }
+
+    .float-layout .img-middle {
+      width: 75%;
+      background-color: lightcyan;
+      height: 300px;
+    }
+
+    .float-layout .text-bottom {
+      width: 100%;
+      background-color: lightyellow;
+      height: 100px;
+    }
+
+    .float-layout::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    /* Стилі для Flexbox */
+    .flex-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flex-layout .img-top,
+    .flex-layout .text-bottom {
+      background-color: lightgreen;
+      height: 100px;
+    }
+
+    .flex-layout .text-bottom {
+      background-color: lightyellow;
+    }
+
+    .flex-layout .middle-section {
+      display: flex;
+    }
+
+    .flex-layout .text-left {
+      background-color: lightblue;
+      width: 25%;
+      height: 300px;
+    }
+
+    .flex-layout .img-middle {
+      background-color: lightcyan;
+      width: 75%;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Лабораторна робота 3 </h1>
+
+<!-- Перемикання між float і flex за допомогою класів -->
+<div class="container float-layout" id="layoutContainer">
+  <div class="img-top">Img.</div>
+  <div class="middle-section">
+    <div class="text-left">Text</div>
+    <div class="img-middle">Img.</div>
+  </div>
+  <div class="text-bottom">Text</div>
+</div>
+
+<!-- Кнопки для перемикання між макетами -->
+<button onclick="switchToFloat()">Float Layout</button>
+<button onclick="switchToFlex()">Flexbox Layout</button>
+
+<script>
+  function switchToFloat() {
+    const container = document.getElementById('layoutContainer');
+    container.classList.remove('flex-layout');
+    container.classList.add('float-layout');
+  }
+
+  function switchToFlex() {
+    const container = document.getElementById('layoutContainer');
+    container.classList.remove('float-layout');
+    container.classList.add('flex-layout');
+  }
+</script>
+
+</body>
+</html>
